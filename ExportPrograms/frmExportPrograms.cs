@@ -18,6 +18,12 @@ namespace ExportPrograms
             InitializeComponent();
         }
 
+        private void AddItem(string item)
+        {
+            if (!this.lbFileList.Items.Contains(item))
+                this.lbFileList.Items.Add(item);
+        }
+
         private void frmExportPrograms_Load(Object sender, EventArgs e)
         {
             try
@@ -37,10 +43,9 @@ namespace ExportPrograms
         {
             lbFileList.Items.Clear();
             selectFiles();
-            if (selectedFileArray != null)
-            {
-                lbFileList.Items.AddRange(selectedFileArray);   
-            }
+            if (this.selectedFileArray != null)
+                foreach (string item in selectedFileArray)
+                    this.AddItem(item);
         }
 
         private void butPods_Click(object sender, EventArgs e)
@@ -97,17 +102,52 @@ namespace ExportPrograms
             }
         }
 
-    }
+        private void lbFileList_MouseDown(object sender, MouseEventArgs e)
+        {
+            lbFileList.Items.Clear();
+            selectFiles();
+            if (selectedFileArray != null)
+            {
+                lbFileList.Items.AddRange(selectedFileArray);
+            }
+        }
 
-    [Serializable]
-    public class ExportProgramsException : Exception
-    {
-        public ExportProgramsException() { }
-        public ExportProgramsException(string message) : base(message) { }
-        public ExportProgramsException(string message, Exception inner) : base(message, inner) { }
-        protected ExportProgramsException(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context)
-            : base(info, context) { }
+        private void lbFileList_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Delete:
+                    this.deleteSelected();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void deleteSelected()
+        {
+            while (lbFileList.SelectedItems.Count > 0)
+                this.lbFileList.Items.Remove(this.lbFileList.SelectedItem);
+        }
+
+        private void frmExportPrograms_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] f = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+                foreach (string s in f)
+                    this.AddItem(s);                
+            }
+        }
+
+        private void lbFileList_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] f = e.Data.GetData(DataFormats.FileDrop, true) as string[];
+                foreach (string s in f)
+                    this.AddItem(s);
+            }
+        }
     }
 }

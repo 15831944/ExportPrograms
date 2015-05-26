@@ -50,6 +50,7 @@
     <Compile Include="AllDone.Designer.cs">
       <DependentUpon>AllDone.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExportProgramsException.cs" />
     <Compile Include="frmExportPrograms.cs">
       <SubType>Form</SubType>
     </Compile>

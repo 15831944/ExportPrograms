@@ -57,12 +57,17 @@
             // 
             // lbFileList
             // 
+            this.lbFileList.AllowDrop = true;
             this.lbFileList.FormattingEnabled = true;
             this.lbFileList.ItemHeight = 15;
             this.lbFileList.Location = new System.Drawing.Point(12, 34);
             this.lbFileList.Name = "lbFileList";
+            this.lbFileList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbFileList.Size = new System.Drawing.Size(258, 289);
             this.lbFileList.TabIndex = 1;
+            this.lbFileList.DragDrop += new System.Windows.Forms.DragEventHandler(this.lbFileList_DragDrop);
+            this.lbFileList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbFileList_KeyDown);
+            this.lbFileList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbFileList_MouseDown);
             // 
             // butOK
             // 
@@ -153,6 +158,7 @@
             // 
             // frmExportPrograms
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 382);
@@ -174,6 +180,7 @@
             this.Text = "Export Programs";
             this.TransparencyKey = System.Drawing.Color.Purple;
             this.Load += new System.EventHandler(this.frmExportPrograms_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmExportPrograms_DragDrop);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
