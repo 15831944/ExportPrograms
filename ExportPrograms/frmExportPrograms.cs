@@ -13,6 +13,7 @@ namespace ExportPrograms {
   public partial class frmExportPrograms : Form {
     public frmExportPrograms() {
       InitializeComponent();
+      Text = Text + @" " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
     }
 
     private void AddItem(string item) {
