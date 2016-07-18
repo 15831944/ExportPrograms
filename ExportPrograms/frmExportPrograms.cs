@@ -53,18 +53,24 @@ namespace ExportPrograms {
 
     private void butOK_Click(object sender, EventArgs e) {
       if (selectedFileArray != null) {
-        try {
-          copyFiles();
-          moveFiles();
-        } catch (ExportProgramsException ex) {
-          _sendErrMessage(ex);
-        } catch (Exception ex) {
-          _sendErrMessage(ex);
+        if (lbMachineList.SelectedIndices.Count > 0) {
+          try {
+            copyFiles();
+            moveFiles();
+          } catch (ExportProgramsException ex) {
+            _sendErrMessage(ex);
+          } catch (Exception ex) {
+            _sendErrMessage(ex);
+          }
+          AllDone ad = new AllDone();
+          ad.ShowDialog();
+          this.Close();
+        } else {
+          System.Windows.Forms.MessageBox.Show(@"Please select more than 0 machines.");
         }
+      } else {
+        System.Windows.Forms.MessageBox.Show(@"Please select more than 0 files.");
       }
-      AllDone ad = new AllDone();
-      ad.ShowDialog();
-      this.Close();
     }
 
     private void butDeleteFromMachines_Click(object sender, EventArgs e) {
