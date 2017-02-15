@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace ExportPrograms {
   public partial class frmExportPrograms : Form {
+    const int THISFUNCTION = 8;
     private string[] selectedFileArray;
     private string selectedBackupFolder;
 
@@ -24,6 +25,13 @@ namespace ExportPrograms {
       cUT_MACHINESTableAdapter.FillCopyable(this.machines.CUT_MACHINES);
       InitializeOpenFileDialog();
       lbFileList.Items.Clear();
+      IncrementOdometer();
+    }
+
+    private void IncrementOdometer() {
+      MachinesTableAdapters.GEN_USERSTableAdapter guta = new MachinesTableAdapters.GEN_USERSTableAdapter();
+      int uid = (int)guta.GetUIDByUsername(Environment.UserName);
+      Machines.IncrementOdometer(THISFUNCTION, uid);
     }
 
     private void butChangeSelection_Click(object sender, EventArgs e) {
