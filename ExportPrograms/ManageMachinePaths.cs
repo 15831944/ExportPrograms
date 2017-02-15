@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace ExportPrograms {
   public partial class ManageMachinePaths : Form {
+    private bool dataChanged = false;
     public ManageMachinePaths() {
       InitializeComponent();
     }
@@ -11,6 +12,11 @@ namespace ExportPrograms {
       Location = Properties.Settings.Default.ManageMachinePathsLocation;
       Size = Properties.Settings.Default.ManageMachinePathsSize;
       cUT_MACHINESTableAdapter.Fill(this.machines.CUT_MACHINES);
+      dataGridView1.CellBeginEdit += dataGridView1_CellBeginEdit;
+    }
+
+    void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e) {
+      dataChanged = true;
     }
 
     private void button1_Click(object sender, EventArgs e) {
@@ -18,11 +24,15 @@ namespace ExportPrograms {
     }
 
     private void button2_Click(object sender, EventArgs e) {
-      DialogResult d = MessageBox.Show(@"Are you sure?", @"Update Data?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-      if (d == DialogResult.Yes) {
-        cUT_MACHINESTableAdapter.Update(machines.CUT_MACHINES);
+      if (dataChanged) {
+        DialogResult d = MessageBox.Show(@"Are you sure?", @"Update Data?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (d == DialogResult.Yes) {
+          cUT_MACHINESTableAdapter.Update(machines.CUT_MACHINES);
+          Close();
+        }
+      } else {
+        Close();
       }
-      Close();
     }
   }
 }
