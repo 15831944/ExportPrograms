@@ -34,5 +34,11 @@ namespace ExportPrograms {
         Close();
       }
     }
+
+    private void ManageMachinePaths_FormClosing(object sender, FormClosingEventArgs e) {
+      Properties.Settings.Default.ManageMachinePathsLocation = Location;
+      Properties.Settings.Default.ManageMachinePathsSize = Size;
+      Properties.Settings.Default.Save();
+    }
   }
 }

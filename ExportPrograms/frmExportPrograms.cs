@@ -20,6 +20,7 @@ namespace ExportPrograms {
     }
 
     private void frmExportPrograms_Load(Object sender, EventArgs e) {
+      Location = Properties.Settings.Default.WindowLocation;
       cUT_MACHINESTableAdapter.FillCopyable(this.machines.CUT_MACHINES);
       InitializeOpenFileDialog();
       lbFileList.Items.Clear();
@@ -118,7 +119,7 @@ namespace ExportPrograms {
 
     private void InitializeOpenFileDialog() {
       this.ofdSelectProgs.Multiselect = true;
-      this.ofdSelectProgs.Filter = "Machine programs (*.mpr)|*.MPR|All files (*.*)|*.*";
+      this.ofdSelectProgs.Filter = "Machine programs (*.mpr)|*.MPR|Laser Programs (*.lcd)|*.LCD|All files (*.*)|*.*";
       this.ofdSelectProgs.Title = "Select machine programs";
     }
 
@@ -301,6 +302,11 @@ namespace ExportPrograms {
     private void button1_Click(object sender, EventArgs e) {
       ManageMachinePaths mmp = new ManageMachinePaths();
       mmp.Show(this);
+    }
+
+    private void frmExportPrograms_FormClosing(object sender, FormClosingEventArgs e) {
+      Properties.Settings.Default.WindowLocation = Location;
+      Properties.Settings.Default.Save();
     }
   }
 }

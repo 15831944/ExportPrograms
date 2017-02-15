@@ -26,11 +26,6 @@
       this.components = new System.ComponentModel.Container();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
-      this.machines = new ExportPrograms.Machines();
-      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.cUT_MACHINESTableAdapter = new ExportPrograms.MachinesTableAdapters.CUT_MACHINESTableAdapter();
-      this.button1 = new System.Windows.Forms.Button();
-      this.button2 = new System.Windows.Forms.Button();
       this.mACHIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.mACHNUMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.mACHNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,10 +33,15 @@
       this.tYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.lOCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.mSORTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.machines = new ExportPrograms.Machines();
+      this.button1 = new System.Windows.Forms.Button();
+      this.button2 = new System.Windows.Forms.Button();
+      this.cUT_MACHINESTableAdapter = new ExportPrograms.MachinesTableAdapters.CUT_MACHINESTableAdapter();
       this.tableLayoutPanel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.machines)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.machines)).BeginInit();
       this.SuspendLayout();
       // 
       // tableLayoutPanel1
@@ -58,7 +58,7 @@
       this.tableLayoutPanel1.RowCount = 2;
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-      this.tableLayoutPanel1.Size = new System.Drawing.Size(551, 192);
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(552, 200);
       this.tableLayoutPanel1.TabIndex = 0;
       // 
       // dataGridView1
@@ -80,44 +80,8 @@
       this.dataGridView1.DataSource = this.cUTMACHINESBindingSource;
       this.dataGridView1.Location = new System.Drawing.Point(3, 3);
       this.dataGridView1.Name = "dataGridView1";
-      this.dataGridView1.Size = new System.Drawing.Size(545, 146);
+      this.dataGridView1.Size = new System.Drawing.Size(546, 154);
       this.dataGridView1.TabIndex = 0;
-      // 
-      // machines
-      // 
-      this.machines.DataSetName = "Machines";
-      this.machines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-      // 
-      // cUTMACHINESBindingSource
-      // 
-      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource.DataSource = this.machines;
-      // 
-      // cUT_MACHINESTableAdapter
-      // 
-      this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
-      // 
-      // button1
-      // 
-      this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.button1.Location = new System.Drawing.Point(3, 155);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(269, 34);
-      this.button1.TabIndex = 1;
-      this.button1.Text = "Cancel";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
-      // 
-      // button2
-      // 
-      this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.button2.Location = new System.Drawing.Point(278, 155);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(270, 34);
-      this.button2.TabIndex = 2;
-      this.button2.Text = "OK";
-      this.button2.UseVisualStyleBackColor = true;
-      this.button2.Click += new System.EventHandler(this.button2_Click);
       // 
       // mACHIDDataGridViewTextBoxColumn
       // 
@@ -172,19 +136,56 @@
       this.mSORTDataGridViewTextBoxColumn.Name = "mSORTDataGridViewTextBoxColumn";
       this.mSORTDataGridViewTextBoxColumn.Visible = false;
       // 
+      // cUTMACHINESBindingSource
+      // 
+      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource.DataSource = this.machines;
+      // 
+      // machines
+      // 
+      this.machines.DataSetName = "Machines";
+      this.machines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      // 
+      // button1
+      // 
+      this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.button1.Location = new System.Drawing.Point(3, 163);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(270, 34);
+      this.button1.TabIndex = 1;
+      this.button1.Text = "Cancel";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // button2
+      // 
+      this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.button2.Location = new System.Drawing.Point(279, 163);
+      this.button2.Name = "button2";
+      this.button2.Size = new System.Drawing.Size(270, 34);
+      this.button2.TabIndex = 2;
+      this.button2.Text = "OK";
+      this.button2.UseVisualStyleBackColor = true;
+      this.button2.Click += new System.EventHandler(this.button2_Click);
+      // 
+      // cUT_MACHINESTableAdapter
+      // 
+      this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
+      // 
       // ManageMachinePaths
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(551, 192);
+      this.ClientSize = new System.Drawing.Size(552, 200);
       this.Controls.Add(this.tableLayoutPanel1);
       this.Name = "ManageMachinePaths";
       this.Text = "ManageMachinePaths";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageMachinePaths_FormClosing);
       this.Load += new System.EventHandler(this.ManageMachinePaths_Load);
       this.tableLayoutPanel1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.machines)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.machines)).EndInit();
       this.ResumeLayout(false);
 
     }

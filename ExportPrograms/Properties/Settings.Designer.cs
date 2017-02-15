@@ -71,7 +71,7 @@ namespace ExportPrograms.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("560, 230")]
         public global::System.Drawing.Size ManageMachinePathsSize {
             get {
                 return ((global::System.Drawing.Size)(this["ManageMachinePathsSize"]));

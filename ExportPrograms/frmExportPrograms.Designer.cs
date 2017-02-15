@@ -214,6 +214,7 @@
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Export Programs";
       this.TransparencyKey = System.Drawing.Color.Purple;
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmExportPrograms_FormClosing);
       this.Load += new System.EventHandler(this.frmExportPrograms_Load);
       this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmExportPrograms_DragDrop);
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();

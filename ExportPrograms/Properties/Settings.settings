@@ -20,7 +20,7 @@
       <Value Profile="(Default)">100, 100</Value>
     </Setting>
     <Setting Name="ManageMachinePathsSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">100, 100</Value>
+      <Value Profile="(Default)">560, 230</Value>
     </Setting>
   </Settings>
 </SettingsFile>
