@@ -25,7 +25,7 @@
     <ProductName>Export Programs</ProductName>
     <PublisherName>Amstore Corp</PublisherName>
     <SuiteName>Amstore Software Tools</SuiteName>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -40,6 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -60,7 +61,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,10 +89,16 @@
     <Compile Include="frmExportPrograms.Designer.cs">
       <DependentUpon>frmExportPrograms.cs</DependentUpon>
     </Compile>
-    <Compile Include="helperFunctions.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="IniParser.cs" />
+    <Compile Include="Machines.cs">
+      <DependentUpon>Machines.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Machines.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Machines.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AllDone.resx">
@@ -111,6 +118,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ExportPrograms_TemporaryKey.pfx" />
+    <None Include="Machines.xsc">
+      <DependentUpon>Machines.xsd</DependentUpon>
+    </None>
+    <None Include="Machines.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Machines.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Machines.xss">
+      <DependentUpon>Machines.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -143,6 +161,27 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumbsup6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meaning-of-vault-boy-thumbs-up-jpg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumbsAmmo03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sarcastic-thumbs-up.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumbs_up_through_wall_T.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumbs_up_bciy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thumbs-Up-1-copy.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
