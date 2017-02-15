@@ -98,6 +98,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Machines.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ManageMachinePaths.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageMachinePaths.Designer.cs">
+      <DependentUpon>ManageMachinePaths.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AllDone.resx">
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmExportPrograms.resx">
       <DependentUpon>frmExportPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageMachinePaths.resx">
+      <DependentUpon>ManageMachinePaths.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

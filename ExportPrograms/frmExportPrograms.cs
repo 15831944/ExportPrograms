@@ -62,7 +62,7 @@ namespace ExportPrograms {
             _sendErrMessage(ex);
           }
           AllDone ad = new AllDone();
-          ad.ShowDialog();
+          ad.Show(this);
           Close();
         } else {
           System.Windows.Forms.MessageBox.Show(@"Please select more than 0 machines.");
@@ -301,6 +301,11 @@ namespace ExportPrograms {
         msg += "\n" + item.Key + ": " + item.Value;
       }
       MessageBox.Show(msg, "Show this to your programmer and see if he can understand it.");
+    }
+
+    private void button1_Click(object sender, EventArgs e) {
+      ManageMachinePaths mmp = new ManageMachinePaths();
+      mmp.Show(this);
     }
   }
 }

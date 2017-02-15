@@ -25,7 +25,7 @@ namespace ExportPrograms.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
         public global::System.Drawing.Point WindowLocation {
             get {
                 return ((global::System.Drawing.Point)(this["WindowLocation"]));
@@ -37,7 +37,7 @@ namespace ExportPrograms.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
         public global::System.Drawing.Size WindowSize {
             get {
                 return ((global::System.Drawing.Size)(this["WindowSize"]));
@@ -54,6 +54,30 @@ namespace ExportPrograms.Properties {
         public string ENGINEERINGConnectionString {
             get {
                 return ((string)(this["ENGINEERINGConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point ManageMachinePathsLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["ManageMachinePathsLocation"]));
+            }
+            set {
+                this["ManageMachinePathsLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Size ManageMachinePathsSize {
+            get {
+                return ((global::System.Drawing.Size)(this["ManageMachinePathsSize"]));
+            }
+            set {
+                this["ManageMachinePathsSize"] = value;
             }
         }
     }

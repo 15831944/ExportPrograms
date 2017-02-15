@@ -31,6 +31,8 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExportPrograms));
       this.lbMachineList = new System.Windows.Forms.ListBox();
+      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.machines = new ExportPrograms.Machines();
       this.ofdSelectProgs = new System.Windows.Forms.OpenFileDialog();
       this.lbFileList = new System.Windows.Forms.ListBox();
       this.butOK = new System.Windows.Forms.Button();
@@ -43,12 +45,11 @@
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
       this.tbDelete = new System.Windows.Forms.TextBox();
-      this.machines = new ExportPrograms.Machines();
-      this.cUTMACHINESBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.cUT_MACHINESTableAdapter = new ExportPrograms.MachinesTableAdapters.CUT_MACHINESTableAdapter();
-      this.statusStrip1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.machines)).BeginInit();
+      this.button1 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.machines)).BeginInit();
+      this.statusStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // lbMachineList
@@ -63,6 +64,16 @@
       this.lbMachineList.Size = new System.Drawing.Size(139, 289);
       this.lbMachineList.TabIndex = 0;
       this.lbMachineList.ValueMember = "MACHID";
+      // 
+      // cUTMACHINESBindingSource
+      // 
+      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
+      this.cUTMACHINESBindingSource.DataSource = this.machines;
+      // 
+      // machines
+      // 
+      this.machines.DataSetName = "Machines";
+      this.machines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
       // lbFileList
       // 
@@ -165,19 +176,19 @@
       this.tbDelete.Size = new System.Drawing.Size(114, 23);
       this.tbDelete.TabIndex = 9;
       // 
-      // machines
-      // 
-      this.machines.DataSetName = "Machines";
-      this.machines.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-      // 
-      // cUTMACHINESBindingSource
-      // 
-      this.cUTMACHINESBindingSource.DataMember = "CUT_MACHINES";
-      this.cUTMACHINESBindingSource.DataSource = this.machines;
-      // 
       // cUT_MACHINESTableAdapter
       // 
       this.cUT_MACHINESTableAdapter.ClearBeforeFill = true;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(221, 329);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(114, 23);
+      this.button1.TabIndex = 10;
+      this.button1.Text = "Machine Paths";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // frmExportPrograms
       // 
@@ -185,6 +196,7 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(428, 382);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.tbDelete);
       this.Controls.Add(this.statusStrip1);
       this.Controls.Add(this.butDeleteFromMachines);
@@ -204,10 +216,10 @@
       this.TransparencyKey = System.Drawing.Color.Purple;
       this.Load += new System.EventHandler(this.frmExportPrograms_Load);
       this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmExportPrograms_DragDrop);
+      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.machines)).EndInit();
       this.statusStrip1.ResumeLayout(false);
       this.statusStrip1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.machines)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.cUTMACHINESBindingSource)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -231,6 +243,7 @@
         private Machines machines;
         private System.Windows.Forms.BindingSource cUTMACHINESBindingSource;
         private MachinesTableAdapters.CUT_MACHINESTableAdapter cUT_MACHINESTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }
 
