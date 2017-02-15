@@ -89,7 +89,6 @@
     <Compile Include="frmExportPrograms.Designer.cs">
       <DependentUpon>frmExportPrograms.cs</DependentUpon>
     </Compile>
-    <Compile Include="IniParser.cs" />
     <Compile Include="Machines.cs">
       <DependentUpon>Machines.xsd</DependentUpon>
       <SubType>Component</SubType>
