@@ -57,7 +57,7 @@ namespace ExportPrograms {
             _sendErrMessage(ex);
           }
           AllDone ad = new AllDone();
-          ad.Show(this);
+          ad.ShowDialog();
           Close();
         } else {
           System.Windows.Forms.MessageBox.Show(@"Please select more than 0 machines.");
@@ -186,7 +186,7 @@ namespace ExportPrograms {
           string baseName = Path.GetFileName(file);
           string newPath = (string)item[@"LOC"];
           string target = newPath + @"\" + baseName;
-          int idx = lbMachineList.Items.IndexOf(machname);
+          int idx = lbMachineList.Items.IndexOf(item);
           bool selected = lbMachineList.GetSelected(idx);
           if (selected && !File.Exists(target)) {
             toolStripStatusLabel1.Text = @"Writing " + baseName + @" to " + machname + @"...";
