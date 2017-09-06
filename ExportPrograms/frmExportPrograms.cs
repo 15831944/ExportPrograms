@@ -197,7 +197,7 @@ namespace ExportPrograms {
           string target = newPath + @"\" + baseName;
           int idx = lbMachineList.Items.IndexOf(item);
           bool selected = lbMachineList.GetSelected(idx);
-          if (selected && !File.Exists(target)) {
+          if (selected) {
             toolStripStatusLabel1.Text = @"Writing " + baseName + @" to " + machname + @"...";
             try {
               if (connected(target)) {
@@ -309,7 +309,8 @@ namespace ExportPrograms {
 
     private void button1_Click(object sender, EventArgs e) {
       ManageMachinePaths mmp = new ManageMachinePaths();
-      mmp.Show(this);
+      mmp.ShowDialog(this);
+      cUT_MACHINESTableAdapter.FillCopyable(this.machines.CUT_MACHINES);
     }
 
     private void frmExportPrograms_FormClosing(object sender, FormClosingEventArgs e) {
