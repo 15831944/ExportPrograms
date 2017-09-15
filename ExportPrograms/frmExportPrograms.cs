@@ -273,7 +273,7 @@ namespace ExportPrograms {
               throw new ExportProgramsException("Failed to delete " + target + ".", ex);
             }
           } else if (!connected(target)) {
-            alDeleteFailArray.Add(s);
+            alDeleteFailArray.Add((string)s[@"MACHNAME"]);
           }
         }
       }
