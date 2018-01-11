@@ -25,6 +25,7 @@ namespace ExportPrograms {
       cUT_MACHINESTableAdapter.FillCopyable(this.machines.CUT_MACHINES);
       InitializeOpenFileDialog();
       lbFileList.Items.Clear();
+			selectMachinesByType(true);
       IncrementOdometer();
     }
 
@@ -207,12 +208,8 @@ namespace ExportPrograms {
                 lbMachineList.SetSelected(idx, false);
               }
             } catch (Exception ex) {
-              ExportProgramsException e = new ExportProgramsException(@"Failed to copy " + target + @".", ex);
-              e.Data.Add("file", file);
-              e.Data.Add("machine", machname);
-              e.Data.Add("baseName", baseName);
-              e.Data.Add("target", target);
-              throw e;
+							alCopyFailArray.Add(machname);
+							lbMachineList.SetSelected(idx, false);
             }
           } else {
             toolStripStatusLabel1.Text = "Skipping " + machname + "...";
