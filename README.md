@@ -1,16 +1,5 @@
 # ExportPrograms
-Exports machine programs to a list of machines defined in an INI file.
-
-## References
--  Microsoft.CSharp
--  System
--  System.Core
--  System.Data
--  System.Data.DataSetExstensions
--  System.Deployment
--  System.Windows.Forms
--  System.Xml
--  System.Xml.Linq
+Exports machine programs to a list of machines defined in a database.
 
 ### License
 Everything that I did is under a BSD License. The goofy Winkler photo was found
