@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:CUT_MACHINES" ZOrder="5" X="176" Y="116" Height="229" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:GEN_ODOMETER" ZOrder="4" X="518" Y="159" Height="153" Width="243" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:GEN_USERS" ZOrder="3" X="860" Y="142" Height="324" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="1" X="461" Y="390" Height="49" Width="315" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="45" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="1" X="505" Y="386" Height="67" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:GEN_ODOMETER_GEN_USERS" ZOrder="2" LineWidth="11">

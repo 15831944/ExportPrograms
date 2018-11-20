@@ -6,6 +6,41 @@ namespace ExportPrograms {
 
 	public partial class Machines {
 
+		/// <summary>
+		/// Dump an error into the db.
+		/// </summary>
+		/// <param name="e">An <see cref="Exception"/> object.</param>
+		public static void ProcessError(Exception e) {
+			int uid_ = 0;
+			using (MachinesTableAdapters.QueriesTableAdapter q_ =
+				new MachinesTableAdapters.QueriesTableAdapter()) {
+				uid_ = Convert.ToInt32(q_.UserQuery(System.Environment.UserName));
+				string[] stack = e.StackTrace.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+				string offender = stack[stack.Length - 1].Trim();
+				int len = offender.Length > 255 ? 255 : offender.Length;
+				string msg_ = string.Format(@"Error `{0}' occurred {1}.", e.Message, offender);
+				int aff = q_.InsertError(
+					DateTime.Now,
+					uid_,
+					e.HResult,
+					e.Message,
+					offender.Substring(0, len),
+					false,
+					@"EXPORT PROGRAMS");
+				if (aff > 0) {
+					msg_ += "\n" + @"This error has been reported.";
+					System.Windows.Forms.MessageBox.Show(msg_, @"Redbrick Error",
+						System.Windows.Forms.MessageBoxButtons.OK,
+						System.Windows.Forms.MessageBoxIcon.Error);
+				} else {
+					msg_ += "\n" + @"This error failed to be reported.";
+					System.Windows.Forms.MessageBox.Show(msg_, @"Redbrick Error",
+						System.Windows.Forms.MessageBoxButtons.OK,
+						System.Windows.Forms.MessageBoxIcon.Error);
+				}
+			}
+		}
+
 		public static void IncrementOdometer(int funcCode, int uid) {
 			SqlConnection conn = new SqlConnection(Properties.Settings.Default.ENGINEERINGConnectionString);
 			int rowAffected = 0;
@@ -18,8 +53,8 @@ namespace ExportPrograms {
 				comm.Parameters.AddWithValue("@user", uid);
 				try {
 					rowAffected = (int)comm.ExecuteNonQuery();
-				} catch (InvalidOperationException) {
-					throw;
+				} catch (InvalidOperationException i) {
+					ProcessError(i);
 				}
 			}
 
@@ -32,15 +67,12 @@ namespace ExportPrograms {
 					comm.Parameters.AddWithValue("@user", uid);
 					try {
 						rowAffected = (int)comm.ExecuteNonQuery();
-					} catch (InvalidOperationException) {
-						throw;
+					} catch (InvalidOperationException i) {
+						ProcessError(i);
 					}
 				}
 			}
 			conn.Close();
 		}
-	}
-
-	partial class CUT_MACHINESDataTable {
 	}
 }

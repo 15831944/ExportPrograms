@@ -62,9 +62,9 @@ namespace ExportPrograms {
 						copyFiles();
 						moveFiles();
 					} catch (ExportProgramsException ex) {
-						_sendErrMessage(ex);
+						Machines.ProcessError(ex);
 					} catch (Exception ex) {
-						_sendErrMessage(ex);
+						Machines.ProcessError(ex);
 					}
 					AllDone ad = new AllDone();
 					ad.ShowDialog();
@@ -81,9 +81,9 @@ namespace ExportPrograms {
 			try {
 				deleteFiles();
 			} catch (ExportProgramsException ex) {
-				_sendErrMessage(ex);
+				Machines.ProcessError(ex);
 			} catch (Exception ex) {
-				_sendErrMessage(ex);
+				Machines.ProcessError(ex);
 			}
 		}
 
@@ -293,15 +293,6 @@ namespace ExportPrograms {
 		private void InitializeFolderSelectDialog() {
 			this.fbdSelectBackupDestination.RootFolder = Environment.SpecialFolder.MyComputer;
 			this.fbdSelectBackupDestination.SelectedPath = "Q:\\WEEKE";
-		}
-
-		private void _sendErrMessage(Exception e) {
-			String msg = e.TargetSite + "threw an error: " + e.Message + "\n";
-
-			foreach (System.Collections.DictionaryEntry item in e.Data) {
-				msg += "\n" + item.Key + ": " + item.Value;
-			}
-			MessageBox.Show(msg, "Show this to your programmer and see if he can understand it.");
 		}
 
 		private void button1_Click(object sender, EventArgs e) {
